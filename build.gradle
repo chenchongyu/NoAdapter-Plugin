@@ -1,6 +1,6 @@
-apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'maven'
-//apply plugin: 'com.github.dcendents.android-maven'
+
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
@@ -30,11 +30,19 @@ allprojects {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.auto.service:auto-service:1.0-rc6'
-    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
-    implementation 'com.squareup:javapoet:1.10.0'
 
-    implementation 'com.github.chenchongyu:NoAdapter-Annotation:v1.0.0.9'
+
+dependencies {
+
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.1.2'
+    implementation 'com.android.tools.build:transform-api:1.5.0'
+    implementation 'org.javassist:javassist:3.20.0-GA'
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral() //必须
 }
